@@ -1,3 +1,49 @@
 nav.navbar {
   margin-bottom: 0;
 }
+.mynavbar{
+  justify-content: flex-end;  
+     
+}
+.navbar {
+  background-color: #034e32;
+ 
+  color: #f0ff99;
+  font-weight: bold;
+}
+
+.navbar-toggler-icon {
+  color: white;
+} 
+
+a {
+  color: #fff599;
+  font-family: 'Josefin Sans';
+  font-size: x-large;
+  /* font-family: 'Righteous';  */
+}
+
+a:hover {
+  color: #d9facb;
+}
+
+.float-right  {
+  font-family: 'Josefin Sans';
+  font-size:x-large  
+}
+
+#logo {
+  width: 50px;
+  height: 50px;
+}
+
+.app-name {
+  color: #EEECEA;
+  font-size: 32px;
+  font-family: "lobster two";
+  margin-right: 20px;
+}
+
+.logout {
+  margin-right: 20px;
+}
