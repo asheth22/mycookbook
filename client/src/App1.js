@@ -33,28 +33,36 @@ function App() {
       <Jumbotron />
       <Container>
         <Row>
-          <Col size="xs-12 md-6" id="searchHistory">
-          <h3 className='text-left'> Search History </h3>
-          </Col>
-          <Col size="xs-12 md-6">
-          <Row> 
-          <h3 className='text-center'> New Recipe Search </h3>
-          <Input
+          <Col size="md-12">
+            <form>
+              <Container>
+                <Row>
+                  <Col size="xs-8 sm-9">
+                    <Input
                       name="RecipeSearch"
                       value={recipeSearch}
                       onChange={handleInputChange}
                       placeholder="Search For a Recipe"
-            />
-          <Button
+                    />
+                  </Col>
+                  <Col size="xs-4 sm-3">
+                    <Button
                       onClick={handleFormSubmit}
                       type="success"
-                      className="input-lg"
-                    >
-                Search
-          </Button>
-          </Row>
-            <Row>
-            <Col size="xs-12` sm-10">
+                      className="input-lg"                    >
+                        Search
+                    </Button>
+                  </Col>
+                </Row>
+              </Container>
+            </form>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="xs-3 sm-4">
+          <h1 className="text-left"> Search History</h1>
+          </Col>  
+          <Col size="xs-9 sm-8">
             {!recipes.length ? (
               <h1 className="text-center"> No Recipes to Display</h1>
             ) : (
@@ -72,8 +80,6 @@ function App() {
                 })}
               </RecipeList>
             )}
-          </Col>
-            </Row>   
           </Col>
         </Row>
       </Container>

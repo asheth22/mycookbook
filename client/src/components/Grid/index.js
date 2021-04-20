@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.css";
 // Exporting the Container, Row, and Col components from this file
 
 // This Container component allows us to use a bootstrap container without worrying about class names
@@ -14,13 +14,14 @@ export function Row({ fluid, children }) {
 
 // This Col component lets us size bootstrap columns with less syntax
 // e.g. <Col size="md-12"> instead of <div className="col-md-12">
-export function Col({ size, children }) {
+export function Col({ size, children, id}) {
   return (
     <div
       className={size
         .split(" ")
         .map(size => "col-" + size)
         .join(" ")}
+      id={id}
     >
       {children}
     </div>
