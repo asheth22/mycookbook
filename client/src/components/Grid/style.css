@@ -2,9 +2,10 @@
     margin: 10px auto; 
     max-width: 90%;
 }
-/* #searchHistory {
-    background-color: brown;
-} */
+#searchHistory {
+    background-color: brown; 
+    margin-right: 50px;
+}
 /* .col-xs-4 {
     background-color: brown;
 }
