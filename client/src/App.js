@@ -33,7 +33,7 @@ function App() {
       <Jumbotron />
       <Container>
         <Row>
-          <Col size="xs-12 md-6" id="searchHistory">
+          <Col size="xs-12 md-5" id="searchHistory">
           <h3 className='text-left'> Search History </h3>
           </Col>
           <Col size="xs-12 md-6">
