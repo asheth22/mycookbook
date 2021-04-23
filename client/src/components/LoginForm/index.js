@@ -3,8 +3,6 @@ import { Container, Row, Col } from '../../components/Grid';
 
 function SignupForm() {
     const [userObject, setuserObject] = useState({
-        firstName: "",
-        lastName: "",
         email: "",
         password: "",
         redirectTo: ""
@@ -23,8 +21,7 @@ function SignupForm() {
         event.preventDefault();
         if (userObject.email && userObject.password) {
             API.saveUser({
-                firstName: userObject.firstName,
-                lastName: userObject.lastName,
+               
                 email: userObject.email,
                 password: userObject.password
             })
@@ -45,23 +42,11 @@ function SignupForm() {
                 <form className="zindex1" style={{marginTop: 10}}>
                   <h1>Register for mycookbook!</h1>
                   <label htmlFor="username">First name: </label>
+                  
+                  <label htmlFor="username">email: </label>
                   <Input
                     type="text"
-                    name="firstName"
-                    value={userObject.firstName}
-                    onChange={handleChange}
-                  />
-                  <label htmlFor="username">Last name: </label>
-                  <Input
-                    type="text"
-                    name="lastName"
-                    value={userObject.lastName}
-                    onChange={handleChange}
-                  />
-                  <label htmlFor="username">Username: </label>
-                  <Input
-                    type="text"
-                    name="username"
+                    name="email"
                     value={userObject.username}
                     onChange={handleChange}
                   />
@@ -73,8 +58,8 @@ function SignupForm() {
                     onChange={handleChange}
                   />
                   
-                  <Link to="/">Login</Link>
-                  <FormBtn onClick={handleFormSubmit}>Register</FormBtn>
+                  <Link to="/">Register</Link>
+                  <FormBtn onClick={handleFormSubmit}>login</FormBtn>
                 </form>
               </Card>
             </Col>
