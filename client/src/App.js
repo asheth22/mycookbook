@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from 'react-router-dom';
+import LoginForm from './pages/Auth/LoginForm';
+import SignupForm from './pages/Auth/SignupForm';
 import Jumbotron from "./components/Jumbotron";
+import AUTH from './utils/AUTH';
 import Nav from "./components/Nav";
 import Input from "./components/Input";
 import Button from "./components/Button";
@@ -11,6 +15,10 @@ function App() {
 
   const [recipes, setRecipes] = useState([]);
   const [recipeSearch, setRecipeSearch] = useState("");
+  const [userState, setuserState] = useState({
+    loggedIn: false,
+    user: null
+  });
 
   const handleInputChange = event => {
     // Destructure the name and value properties off of event.target
@@ -26,6 +34,49 @@ function App() {
       .then(res => setRecipes(res.data))
       .catch(err => console.log(err));
   };
+  useEffect() {
+		AUTH.getUser().then(response => {
+			console.log(response.data);
+			if (!!response.data.user) {
+				this.setState({
+					loggedIn: true,
+					user: response.data.user
+				});
+			} else {
+				this.setState({
+					loggedIn: false,
+					user: null
+				});
+			}
+		});
+	}
+  logout = (event) => {
+    event.preventDefault();
+    
+		AUTH.logout().then(response => {
+			console.log('successfully logged out!');
+			console.log(response.status);
+			if (response.status === 200) {
+			  setuserState({
+          loggedIn: false,
+          user: null
+        })
+			}
+
+		});
+	}
+
+	login = (username, password) => {
+		AUTH.login(username, password).then(response => {
+      console.log(response);
+      if (response.status === 200) {
+        // update the state
+        setuserState({
+          loggedIn: true,
+          user: response.data.user
+        })
+      } 
+    });
 
   return (
     <div>
