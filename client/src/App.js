@@ -34,7 +34,7 @@ function App() {
       .then(res => setRecipes(res.data))
       .catch(err => console.log(err));
   };
-  useEffect() {
+  useEffect() 
 		AUTH.getUser().then(response => {
 			console.log(response.data);
 			if (!!response.data.user) {
